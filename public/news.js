@@ -8,9 +8,14 @@
         $scope.itemArray = [];
         $scope.newItem = {content: ''};
         $scope.editTempItem = {};
+        $scope.page = 0;
+
 
         $scope.getItems = function () {
             var query = new AV.Query(Message);
+            query.limit(10);
+            query.skip(10 * $scope.page);
+            query.descending("date");
             query.find({
                 success: function (results) {
                     $scope.$apply(function () {
@@ -19,6 +24,24 @@
                 }
             })
         };
+
+        $scope.prePage = function () {
+            if ($scope.page > 0) {
+                $scope.page--;
+                $scope.getItems();
+            }else{
+                alert("到第一页了");
+            }
+        };
+        $scope.nextPage = function () {
+            if ($scope.itemArray.length == 10) {
+                $scope.page++;
+                $scope.getItems();
+            }else{
+                alert("到最后一页了");
+            }
+        };
+
         $scope.getItems();
     }]);
 })();
