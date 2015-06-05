@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="lib/angular.js"></script>
+    <script src="lib/av.js"></script>
+    <script src="news.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body ng-app="appModule">
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">手机短信管理系统</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">短信记录查看</a></li>
+            <li><a href="#">通话记录查看</a></li>
+            <li><a href="#">通话记录录音</a></li>
+            <li><a href="#">控制手机发送短信</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container" ng-controller="appCtrl">
+
+    <section ng-repeat="item in itemArray">
+        <section ng-show="item.type==1">
+            <img style="width: 40px; vertical-align: top; visibility: visible; height: auto;"
+                 data-src="images/head_2.jpg"
+                 data-w="40" data-ratio="1" _width="40px"
+                 src="images/head_2.jpg"/>
+            <section
+                    style="padding: 1em; border-radius: 1em; width: 65%; color: inherit; font-family: inherit; font-size: 1em; margin-top: 0.7em; margin-left: -0.4em; display: inline-block; background-color: rgb(255, 228, 200);">
+                <h6 class="text-danger">{{item.address}}</h6>
+                {{item.body}}
+                <h6 class="text-right text-danger">{{item.date|date:"yyyy-MM-dd hh:mm:ss"}}</h6>
+            </section>
+        </section>
+        <section style="text-align: right;" ng-show="item.type==2">
+            <section
+                    style="padding: 1em; border-radius: 1em; width: 65%; text-align: left; color: inherit; font-family: inherit; font-size: 1em; margin-top: 0.7em; margin-right: -0.4em; display: inline-block; background-color: rgb(188, 227, 249);">
+                <h6 class="text-right text-success">{{item.address}}</h6>
+                {{item.body}}
+                <h6 class="text-success">{{item.date|date:"yyyy-MM-dd hh:mm:ss"}}</h6>
+            </section>
+            <img
+                    style="width: 40px; vertical-align: top; visibility: visible; height: auto;"
+                    class="tn-page-image ng-scope tn-page-editable"
+                    data-src="images/head_1.jpg"
+                    data-w="40" data-ratio="1"
+                    _width="40px"
+                    src="images/head_1.jpg"/>
+        </section>
+    </section>
+</div>
+</body>
+</html>
