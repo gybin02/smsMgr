@@ -12,6 +12,7 @@
     <META http-equiv="Content-Type" content="text/html; charset=utf-8">
     <TITLE>短信后台管理登录页面</TITLE>
     <SCRIPT src="js/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>
+    <script src="lib/av.js"></script>
 
     <STYLE>
         body {
@@ -210,18 +211,19 @@
 
 
 <script>
+    AV.initialize("zn7kexp98dqfqo26nz1xyvo5g3c9hs7x569ym36woeoky7y5", "2i2p8ppgnetd27yb7adi45slkw2cd0cskrn3oixxlkhuj63b");
     function checkInput() {
         var username = $("#username").val();
         var password = $("#password").val();
-        if (username == "admin"&& password=="1") {
-            alert("登录成功");
-            window.location.href="dialog.html"
-            return true;
-        }
-        else {
-            alert("校验失败,请重输");
-            return false;
-        }
+        AV.User.logIn(username,password,{
+            success:function(user){
+                alert("登录成功");
+                window.location.href="dialog.html"
+            },
+            error:function(user,error){
+                alert("校验失败,请重输");
+            }
+        });
     }
 
 </script>
