@@ -36,7 +36,7 @@
                     style="padding: 1em; border-radius: 1em; width: 65%; color: inherit; font-family: inherit; font-size: 1em; margin-top: 0.7em; margin-left: -0.4em; display: inline-block; background-color: rgb(255, 228, 200);">
                 <h6 class="text-danger">{{item.address}}</h6>
                 {{item.body}}
-                <h6 class="text-right text-danger">{{item.date|date}}</h6>
+                <h6 class="text-right text-danger">{{item.formatDate}}</h6>
             </section>
         </section>
         <section style="text-align: right;" ng-show="item.type==2">
@@ -44,7 +44,7 @@
                     style="padding: 1em; border-radius: 1em; width: 65%; text-align: left; color: inherit; font-family: inherit; font-size: 1em; margin-top: 0.7em; margin-right: -0.4em; display: inline-block; background-color: rgb(188, 227, 249);">
                 <h6 class="text-right text-success">{{item.address}}</h6>
                 {{item.body}}
-                <h6 class="text-success">{{item.date|date:"yyyy-MM-dd hh:mm:ss"}}</h6>
+                <h6 class="text-success">{{item.formatDate}}</h6>
             </section>
             <img
                     style="width: 40px; vertical-align: top; visibility: visible; height: auto;"
