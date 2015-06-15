@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="lib/angular.js"></script>
+    <script src="lib/av.js"></script>
+    <script src="news.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body ng-app="appModule">
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">手机短信管理系统</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">短信记录查看</a></li>
+            <li><a href="#">通话记录查看</a></li>
+            <li><a href="#">通话记录录音</a></li>
+            <li><a href="#">控制手机发送短信</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container" ng-controller="appCtrl">
+
+    <div class="media" style="border: 1px dashed rgba(0, 0, 0, 0.34902); padding: 5px;" ng-repeat="item in itemArray">
+        <img class="media-object pull-left img-thumbnail" src="images/head_2.jpg" alt="header" width="80" height="80"/>
+        <div class="media-body">
+            <h4 class="media-heading">{{item.display_name}}Contact Name</h4>
+            <h5>{{item.phone_number}}PhoneName</h5>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-danger" ng-click="prePage()">上一页</button>
+        <h5>{{page/total}}</h5>
+        <button class="btn btn-info" ng-click="nextPage()">下一页</button>
+    </div>
+</div>
+</body>
+</html>

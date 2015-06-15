@@ -4,19 +4,18 @@
         AV.initialize("zn7kexp98dqfqo26nz1xyvo5g3c9hs7x569ym36woeoky7y5", "2i2p8ppgnetd27yb7adi45slkw2cd0cskrn3oixxlkhuj63b");
     });
     module.controller("appCtrl", ['$http', '$scope', function ($http, $scope) {
-        var Message = AV.Object.extend("message");
+        var Item = AV.Object.extend("call_record");
         $scope.itemArray = [];
-        $scope.newItem = {content: ''};
-        $scope.editTempItem = {};
+        //$scope.newItem = {content: ''};
+        //$scope.editTempItem = {};
         $scope.page = 0;
-        $scope.total = 0;
 
 
         $scope.getItems = function () {
-            var query = new AV.Query(Message);
+            var query = new AV.Query(Item);
             query.limit(10);
             query.skip(10 * $scope.page);
-            query.descending("date");
+            //query.descending("date");
             query.find({
                 success: function (results) {
                     $scope.$apply(function () {
@@ -44,7 +43,7 @@
         };
 
         $scope.getPageCount=function(){
-            var query = new AV.Query(Message);
+            var query = new AV.Query(Item);
             query.count({
                 success:function(result){
                     $scope.total=result/10+1;
