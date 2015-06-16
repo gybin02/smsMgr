@@ -16,3 +16,9 @@
 ## 网站托管
 
 使用云代码在AVOS Cloud上托管您的网站，参见[云代码开发指南](https://cn.avoscloud.com/docs/cloud_code_guide.html)。
+##TODO
+1. 使用Express路由实现登录，并且保证页面的安全性
+2. 新增单点Push 消息页面。
+3. 根据用户 注册的观察 实现，查看特定的内容。 IMEI 对应相关 手机号码。只运行查看有权限的内容。
+4. 学习Express的和Angular的组合实现。
+5.

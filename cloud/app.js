@@ -37,7 +37,7 @@ app.get('/message',function(req,res){
   if (req.AV.user) {
     console.error("User Valid")
   }
-  res.redirect('dialog.html');
+  res.redirect('sms.html');
 });
 app.get('/contact',function(req,res){
   res.redirect('contact.html');

@@ -47,7 +47,7 @@
             var query = new AV.Query(Message);
             query.count({
                 success:function(result){
-                    $scope.total=result/10+1;
+                    $scope.total=Math.floor(result/10)+1;
                 }
             });
         };

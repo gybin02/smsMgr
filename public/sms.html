@@ -6,7 +6,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="lib/angular.js"></script>
     <script src="lib/av.js"></script>
-    <script src="news.js"></script>
+    <script src="sms.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
@@ -57,7 +57,7 @@
     </section>
     <div class="modal-footer">
         <button class="btn btn-danger" ng-click="prePage()">上一页</button>
-        <h5>{{page/total}}</h5>
+        <span>{{(page+1)+"/"+total}}</span>
         <button class="btn btn-info" ng-click="nextPage()">下一页</button>
     </div>
 </div>
